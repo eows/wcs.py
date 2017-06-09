@@ -1,7 +1,6 @@
 import requests
 import xmltodict
 import time
-# 127.0.0.1:7654/wcs?service=WCS&version=2.0.1&request=GetCoverage&coverageid=mod13q1&subset=time_id(0,0)&format=image/tiff&rangesubset=ndvi
 
 
 class WCS(object):

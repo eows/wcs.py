@@ -1,13 +1,11 @@
 from __future__ import print_function
 import sys
 from wcs import WCS
-from generator import initialize
 
 
 if __name__ == "__main__":
     # Creating WCS object
     w = WCS()
-    initialize()
 
     exit_code = 0
 
