@@ -1,7 +1,6 @@
 import requests
 import xmltodict
 import time
-from generator import GMLToGeoTIFF
 # 127.0.0.1:7654/wcs?service=WCS&version=2.0.1&request=GetCoverage&coverageid=mod13q1&subset=time_id(0,0)&format=image/tiff&rangesubset=ndvi
 
 
@@ -191,14 +190,12 @@ class WCS(object):
 
         file_name = self.output + "/{0}-{1}.{2}".format(coverage_id, time.time(), "{}")
         if fmt == "application/gml+xml" or fmt == "application/xml":
-            writer = GMLToGeoTIFF(req.content)
-            file_name = file_name.format("tiff")
-            writer.save(file_name)
+            file_name = file_name.format("xml")
         elif fmt == "image/tiff":
             file_name = file_name.format("tiff")
 
-            with open(file_name, "w") as f:
-                f.write(req.content)
-                f.close()
+        with open(file_name, "w") as f:
+            f.write(req.content)
+            f.close()
 
         return file_name
